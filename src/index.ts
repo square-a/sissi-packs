@@ -8,7 +8,7 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
 
-export default async function run() {
+export = async function run() {
   process.env.BABEL_ENV = 'development';
   process.env.NODE_ENV = 'development';
 

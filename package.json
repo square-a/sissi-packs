@@ -1,7 +1,7 @@
 {
   "name": "sissi-packs",
   "description": "Webpack configuration for sissi (simple static sites)",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Alex Kott @AlexKott",
   "bin": {
     "sissi-packs": "./bin/sissi-packs.js"
@@ -53,7 +53,7 @@
   "main": "lib/index.js",
   "repository": "square-a/sissi-packs",
   "scripts": {
-    "prepare": "rm -rf lib && tsc"
+    "prepare": "rm -rf lib && tsc && cp -R src/config lib/config"
   },
   "types": "lib/index.d.ts"
 }
