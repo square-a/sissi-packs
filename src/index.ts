@@ -12,15 +12,15 @@ export = async function run() {
   process.env.BABEL_ENV = 'development';
   process.env.NODE_ENV = 'development';
 
-  const paths = require('../config/paths');
-  const config = require('../config/webpack.config.dev');
-  const createDevServerConfig = require('../config/webpackDevServer.config');
+  const paths = require('./config/paths');
+  const config = require('./config/webpack.config.dev');
+  const createDevServerConfig = require('./config/webpackDevServer.config');
 
   const protocol = 'http';
   const host = '0.0.0.0';
   const defaultPort = 3000;
 
-  require('../config/env');
+  require('./config/env');
   try {
     const port = await choosePort(host, defaultPort);
     const urls = prepareUrls(protocol, host, port);
@@ -33,6 +33,7 @@ export = async function run() {
       if (err) {
         return console.log(err);
       }
+      console.log(`Development server listening on port ${port}...`);
       openBrowser(urls.localUrlForBrowser);
     });
 
