@@ -8,7 +8,7 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
 
-export default async function cmdStart() {
+export default async function run() {
   process.env.BABEL_ENV = 'development';
   process.env.NODE_ENV = 'development';
 
@@ -23,7 +23,6 @@ export default async function cmdStart() {
   require('../config/env');
   try {
     const port = await choosePort(host, defaultPort);
-    const appName = require(paths.appPackageJson).name;
     const urls = prepareUrls(protocol, host, port);
 
     const compiler = webpack(config);
@@ -34,7 +33,6 @@ export default async function cmdStart() {
       if (err) {
         return console.log(err);
       }
-      console.log(`Development server listening on port ${port}...`);
       openBrowser(urls.localUrlForBrowser);
     });
 
@@ -52,13 +50,4 @@ export default async function cmdStart() {
     }
     process.exit(1);
   }
-
-  execFile(`${process.cwd()}/node_modules/.bin/sissi-says`, (err : any) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log('You can visit the sissi on port 3010');
-  });
 }
-
-cmdStart();
