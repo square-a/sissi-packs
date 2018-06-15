@@ -1,10 +1,10 @@
 {
   "name": "sissi-packs",
   "description": "Webpack configuration for sissi (simple static sites)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Alex Kott @AlexKott",
   "bin": {
-    "sissi": "./bin/run"
+    "sissi": "./bin/sissi-packs.js"
   },
   "bugs": "https://github.com/square-a/sissi-packs/issues",
   "dependencies": {
@@ -51,9 +51,6 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "oclif": {
-    "bin": "sissi-packs"
-  },
   "repository": "square-a/sissi-packs",
   "scripts": {
     "prepare": "rm -rf lib && tsc"
