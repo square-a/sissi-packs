@@ -8,7 +8,7 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
 
-export = async function run() {
+module.exports = async function run() {
   process.env.BABEL_ENV = 'development';
   process.env.NODE_ENV = 'development';
 
@@ -29,7 +29,7 @@ export = async function run() {
     const serverConfig = createDevServerConfig(host);
     const devServer = new WebpackDevServer(compiler, serverConfig);
 
-    devServer.listen(port, host, (err: any) => {
+    devServer.listen(port, host, (err) => {
       if (err) {
         return console.log(err);
       }
@@ -37,7 +37,7 @@ export = async function run() {
       openBrowser(urls.localUrlForBrowser);
     });
 
-    ['SIGINT', 'SIGTERM'].forEach((sig: any) => {
+    ['SIGINT', 'SIGTERM'].forEach((sig) => {
       process.on(sig, () => {
         devServer.close();
         process.exit();
