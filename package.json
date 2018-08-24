@@ -1,10 +1,10 @@
 {
   "name": "sissi-packs",
   "description": "Webpack configuration for sissi (simple static sites)",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Alex Kott @AlexKott",
   "bin": {
-    "sissi-packs": "./bin/sissi-packs.js"
+    "sissi-packs": "./bin/run"
   },
   "bugs": "https://github.com/square-a/sissi-packs/issues",
   "dependencies": {

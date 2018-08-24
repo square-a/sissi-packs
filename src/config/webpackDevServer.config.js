@@ -8,6 +8,7 @@ module.exports = function(allowedHost) {
     compress: true,
     clientLogLevel: 'none',
     contentBase: paths.appPublic,
+    historyApiFallback: true,
     watchContentBase: true,
     hot: true,
     publicPath: config.output.publicPath,
