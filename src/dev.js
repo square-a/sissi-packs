@@ -14,9 +14,8 @@ const createDevServerConfig = require('./config/webpackDevServer.config');
 
 const protocol = 'http';
 const host = '0.0.0.0';
-const defaultPort = 3000;
 
-export default async function dev() {
+export default async function dev(defaultPort) {
 
   try {
     const port = await choosePort(host, defaultPort);

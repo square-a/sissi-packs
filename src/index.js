@@ -7,6 +7,9 @@ process.on('unhandledRejection', err => {
 
 module.exports = function run(args, flags) {
   const [ command ] = args;
+  const {
+    port = 3000,
+  } = flags;
 
   switch(command) {
     case 'build':
@@ -18,7 +21,7 @@ module.exports = function run(args, flags) {
     case 'dev':
       process.env.BABEL_ENV = 'development';
       process.env.NODE_ENV = 'development';
-      dev();
+      dev(port);
       return;
 
     default:
