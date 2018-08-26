@@ -14,12 +14,13 @@
     "react",
     "static-site-generator"
   ],
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "bin": {
     "sissi-packs": "./bin/run"
   },
   "bugs": "https://github.com/square-a/sissi-packs/issues",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0-rc.2",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
@@ -30,6 +31,7 @@
     "file-loader": "1.1.5",
     "html-webpack-plugin": "2.29.0",
     "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^4.0.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "raw-loader": "^0.5.1",
@@ -41,5 +43,20 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4"
   },
-  "scripts": {}
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015-node5": "^1.2.0"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-es2015-node5"
+    ]
+  },
+  "scripts": {
+    "clear": "rm -rf ./lib && mkdir ./lib",
+    "prepare": "npm run clear && npm run transpile",
+    "start": "npm run clear && npm run watch",
+    "transpile": "./node_modules/.bin/babel src -d lib",
+    "watch": "./node_modules/.bin/babel src -d lib --watch"
+  }
 }

@@ -4,16 +4,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
 const publicPath = '/';
 const publicUrl = '';
-const env = getClientEnvironment(publicUrl);
-
-function resolve (dir) {
-  return path.join(__dirname, '..', dir);
-}
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -31,13 +25,7 @@ module.exports = {
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   resolve: {
-    modules: ['node_modules', paths.appNodeModules].concat(
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
     extensions: ['.js', '.json', '.jsx'],
-    alias: {
-      '@': resolve('src'),
-    },
   },
   module: {
     strictExportPresence: true,
@@ -108,13 +96,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new InterpolateHtmlPlugin(env.raw),
+    new InterpolateHtmlPlugin({ PUBLIC_URL: publicUrl }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.DefinePlugin(env.stringified),
     new webpack.HotModuleReplacementPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
   ],
