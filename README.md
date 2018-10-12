@@ -1,25 +1,19 @@
-# sissi-packs
+# sissi-packs – webpack configuration for [sissi]
 
-## Introduction
-_Sissi-packs_ is part of [sissi](https://github.com/AlexKott/sissi), a simple static site generator. Because _sissi_ doesn't like to do everything on herself, she employs some modules who can help. _Sissi_ is still young and the modules might change from time to time to adjust to her different life situations.
+<img src='https://raw.githubusercontent.com/square-a/sissi/master/sissi.png'  width='160px' />
 
-Of course you can use _sissi-packs_ independently as well if it fits your needs. Just consider that the main goal for the module is, to make _sissi_ happy. Everything else is just an extra.
+Hi, it’s me again. *sissi*, your ***si**mple **s**tatic **si**tes* generator.
 
-## Installation
-When you're asking for _sissi_, _sissi-packs_ is already included. For every other use case just do the usual:
+If you want to turn your simple React app into a static site with a built-in CMS look no further! Or actually, do: [the sissi repo][sissi] is where you'll find all you need. See you there!
 
-`yarn add sissi-packs`
+If you're a sissi fan and want to contribute – welcome! I'm glad you're here. I have to apologise, though. Please bear with me. I have but two parents and they are working hard on their sissi-to-do-lists. *Contribution guidelines* and *thorough documentation of all packages* are somewhere in there. Somewhere... For now, this will have to do:
 
-or
+## What sissi-packs can do
+*sissi-packs* is a set of [webpack](https://webpack.js.org) configurations optimised for [sissi] projects and based on the [create-react-app](https://github.com/facebook/create-react-app) settings.
 
-`npm i sissi-packs`
+The `dev` configuration is used during development with `sissi dev` and provides a webpack dev server.
 
+The `prod` configuration bundles the app for snapshotting in a `tmp` folder. *sissi-packs* processes JSX, images and [SCSS](https://sass-lang.com/) and exposes the *EntryComponent* as default export for [sissi-guides].
 
-## Contributing
-This is just one of several things that _sissi_ needs for her well being. It is important to keep all settings focussed on her so that she'll always be the center.
-
-Feel free to open an issue or [get in touch](https://alexkott.com), if you're interested in helping _sissi_ through her childhood or see some parenting mistake that you'd like to fix.
-
-
-## Credits
-_Sissi-packs_ was heavily inspired by [create-react-app](https://github.com/facebook/create-react-app).
+[sissi]:https://github.com/square-a/sissi
+[sissi-guides]:https://github.com/square-a/sissi-guides
