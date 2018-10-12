@@ -20,6 +20,8 @@ module.exports = {
     path: paths.appBuild,
     filename: SCRIPT_NAME,
     publicPath,
+    library: 'Page',
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
